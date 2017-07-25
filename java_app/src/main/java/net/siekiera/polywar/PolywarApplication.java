@@ -2,11 +2,18 @@ package net.siekiera.polywar;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class PolywarApplication {
+public class PolywarApplication extends SpringBootServletInitializer {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PolywarApplication.class, args);
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(PolywarApplication.class);
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(PolywarApplication.class, args);
+    }
 }
